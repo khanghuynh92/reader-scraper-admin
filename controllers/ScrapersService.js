@@ -5,7 +5,7 @@ import Source from '../models/source';
 import Scraper from '../models/scraper';
 import Post from '../models/post';
 import logging from '../helpers/Log';
-import { addCronJob } from '../helpers/Cron';
+import { addCronJob, fetchCustom } from '../helpers/Cron';
 
 const register = async (req, res, next) => {
   const args = req.swagger.params.body.value;
@@ -118,7 +118,15 @@ const upload = async (req, res, next) => {
   });
 };
 
+const fetch = (req, res) => {
+  fetchCustom();
+  res.json({
+    message: 'Done',
+  });
+};
+
 export {
   register,
   upload,
+  fetch,
 };

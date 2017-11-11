@@ -1,8 +1,9 @@
-import { healthCheck, fetch } from '../helpers/Cron';
+import { fetchInterval } from '../helpers/Cron';
 
 const load = () => {
-  healthCheck();
-  fetch();
+  // healthCheck();
+  // fetch();
+  fetchInterval();
 };
 
 export default load;

@@ -1,8 +1,11 @@
 import Fetch from 'node-fetch';
 import { CronJob } from 'cron';
+import Crawl from './Crawl';
+import Post from '../models/post';
 import logging from './Log';
 
 import Scraper from '../models/scraper';
+import scraperData from '../data/scrapers';
 
 const scraperJobs = new Map();
 
@@ -100,8 +103,73 @@ const fetch = async () => {
   }
 };
 
+// create posts
+const createPosts = async (posts, source) => {
+  for (const { title, content, image, url, host, path } of posts) {
+    const post = await Post.findOne({
+      isDeleted: false,
+      host,
+      path,
+    }).exec();
+    if (!post) {
+      const newPost = new Post({
+        title,
+        content,
+        image,
+        url,
+        host,
+        path,
+        source,
+      });
+      await newPost.createByUser();
+    } else {
+      post.created.at = new Date();
+      await post.updateByUser();
+    }
+  }
+};
+
+// fetch custom
+const fetchInterval = async () => {
+  setInterval(async () => {
+    const promises = scraperData.map(async ({ url, scope, selector, map, source }) => {
+      // config``
+      const config = {
+        url,
+        scope,
+        selector,
+        map,
+      };
+
+      const posts = await Crawl(config);
+      createPosts(posts, source);
+    });
+
+    await Promise.all(promises);
+  }, 3 * 60 * 60 * 1000); // 1 hour
+};
+
+const fetchCustom = async () => {
+  const promises = scraperData.map(async ({ url, scope, selector, map, source }) => {
+    // config``
+    const config = {
+      url,
+      scope,
+      selector,
+      map,
+    };
+
+    const posts = await Crawl(config);
+    createPosts(posts, source);
+  });
+
+  await Promise.all(promises);
+};
+
 export {
   addCronJob,
   healthCheck,
   fetch,
+  fetchInterval,
+  fetchCustom,
 };

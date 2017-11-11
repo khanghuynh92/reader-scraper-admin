@@ -63,3 +63,5 @@ dist
 
 .yarnclean
 yarn.lock
+
+*.test.js

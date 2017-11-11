@@ -12,7 +12,10 @@ const upload = process.env.NODE_ENV === 'mock' ? (req, res) => {
   });
 } : MiddelwaresWrapper(Scrapers.upload);
 
+const fetch = MiddelwaresWrapper(Scrapers.fetch);
+
 export {
   register,
   upload,
+  fetch,
 };
