@@ -129,26 +129,6 @@ const createPosts = async (posts, source) => {
   }
 };
 
-// fetch custom
-const fetchInterval = async () => {
-  setInterval(async () => {
-    const promises = scraperData.map(async ({ url, scope, selector, map, source }) => {
-      // config``
-      const config = {
-        url,
-        scope,
-        selector,
-        map,
-      };
-
-      const posts = await Crawl(config);
-      createPosts(posts, source);
-    });
-
-    await Promise.all(promises);
-  }, 3 * 60 * 60 * 1000); // 1 hour
-};
-
 const fetchCustom = async () => {
   const promises = scraperData.map(async ({ url, scope, selector, map, source }) => {
     // config``
@@ -164,6 +144,13 @@ const fetchCustom = async () => {
   });
 
   await Promise.all(promises);
+};
+
+// fetch custom
+const fetchInterval = async () => {
+  setInterval(async () => {
+    fetchCustom();
+  }, 3 * 60 * 60 * 1000); // 1 hour
 };
 
 export {

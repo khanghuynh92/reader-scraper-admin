@@ -12,7 +12,7 @@ const crawl = async ({ url, scope, selector, map }) => {
           reject([]);
         }
         const posts = await map(result);
-        resolve(posts);
+        resolve(posts.reverse());
       });
   });
 };

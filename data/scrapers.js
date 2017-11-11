@@ -203,4 +203,33 @@ export default [{
     }
     return [];
   },
+}, {
+  name: 'Dash',
+  source: '59b50a27f8004b67d3a041ac',
+  limit: 7,
+  url: 'https://www.dashforcenews.com/',
+  scope: '.container .posts-blog-feed-module .paginated_page article',
+  selector: {
+    title: '.post-content h2',
+    description: '.post-content .post-meta p span',
+    url: '.post-content .post-meta p a@href',
+    image: '.header img@src',
+  },
+  map: (result) => {
+    if (result) {
+      const items = result.splice(0, 7);
+      return items.map((item) => {
+        const postUrl = URL.parse(item.url);
+        return {
+          url: postUrl.href,
+          title: item.title,
+          content: '',
+          image: item.image,
+          host: postUrl.hostname,
+          path: postUrl.pathname,
+        };
+      });
+    }
+    return [];
+  },
 }];
