@@ -8,7 +8,7 @@ export default [{
   scope: 'div.td-container div.td-main-content div.td-animation-stack',
   selector: {
     title: 'div.item-details a',
-    description: 'div.list-group-item-flush div.main-post footer time@datetime',
+    description: 'div.item-details div.td-module-meta-info time',
     url: 'div.item-details a@href',
     image: 'div.td-module-thumb img@src',
   },
@@ -124,7 +124,7 @@ export default [{
   scope: 'div.main-content div.list-group-flush',
   selector: {
     title: 'div.list-group-item-flush h5',
-    description: 'div.list-group-item-flush footer time@title',
+    description: 'div.list-group-item-flush div.main-post footer time@datetime',
     url: 'div.list-group-item-flush h5 a@href',
     image: 'div.list-group-item-flush img@src',
   },
