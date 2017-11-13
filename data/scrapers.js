@@ -8,7 +8,7 @@ export default [{
   scope: 'div.td-container div.td-main-content div.td-animation-stack',
   selector: {
     title: 'div.item-details a',
-    description: 'div.item-details div.td-module-meta-info time',
+    description: 'div.list-group-item-flush div.main-post footer time@datetime',
     url: 'div.item-details a@href',
     image: 'div.td-module-thumb img@src',
   },
@@ -120,7 +120,7 @@ export default [{
   name: 'Litecoin',
   source: '59b50a27f8004b67d3a041be',
   limit: 20,
-  url: 'div.list-group-item-flush footer time',
+  url: 'https://ltc-aggr.com/',
   scope: 'div.main-content div.list-group-flush',
   selector: {
     title: 'div.list-group-item-flush h5',
