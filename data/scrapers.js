@@ -136,7 +136,7 @@ export default [{
         return {
           url: postUrl.href,
           title: item.title,
-          content: '',
+          content: item.description,
           image: item.image,
           host: postUrl.hostname,
           path: postUrl.pathname,
@@ -165,7 +165,7 @@ export default [{
         return {
           url: postUrl.href,
           title: item.title,
-          content: '',
+          content: item.description,
           image: item.image,
           host: postUrl.hostname,
           path: postUrl.pathname,
@@ -223,7 +223,7 @@ export default [{
         return {
           url: postUrl.href,
           title: item.title,
-          content: '',
+          content: item.description,
           image: item.image,
           host: postUrl.hostname,
           path: postUrl.pathname,
