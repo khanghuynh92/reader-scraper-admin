@@ -207,7 +207,7 @@ export default [{
   name: 'Dash',
   source: '59b50a27f8004b67d3a041ac',
   limit: 7,
-  url: 'https://www.dashforcenews.com/',
+  url: 'https://www.dashforcenews.com/?s=',
   scope: '.container .posts-blog-feed-module .paginated_page article',
   selector: {
     title: '.post-content h2',
