@@ -89,7 +89,8 @@
       "func-names": [
         "error",
         "never"
-      ]
+      ],
+      "linebreak-style": 0
     }
   },
   "babel": {

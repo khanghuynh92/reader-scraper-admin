@@ -58,9 +58,6 @@ package-lock.json
 
 dist
 
-# dotenv environment variables file
-.env
-
 .yarnclean
 yarn.lock
 
