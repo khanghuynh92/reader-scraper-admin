@@ -140,7 +140,7 @@ const fetchCustom = async () => {
     };
 
     const posts = await Crawl(config);
-    console.log(`@===============> Get Posts for source ${source}`);
+    console.log(`@===============> Get Posts for source ${source} at ${new Date()}`);
     console.log(posts);
     createPosts(posts, source);
   });

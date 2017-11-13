@@ -1,13 +1,13 @@
 import Xray from 'x-ray';
 
 const x = Xray();
-const url = 'https://ltc-aggr.com/';
-const scope = 'div.main-content div.list-group-flush';
+const url = 'https://www.dashforcenews.com/?s=';
+const scope = '.container .posts-blog-feed-module .paginated_page article';
 const selector = {
-  title: 'div.list-group-item-flush h5',
-  description: 'div.list-group-item-flush div.main-post footer time@datetime',
-  url: 'div.list-group-item-flush h5 a@href',
-  image: 'div.list-group-item-flush img@src',
+  title: '.post-content h2',
+  description: '.post-content .post-meta p span',
+  url: '.post-content h2 a@href',
+  image: '.header img@src',
 };
 
 const crawl = () => {
