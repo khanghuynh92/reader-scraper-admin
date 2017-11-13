@@ -33,13 +33,13 @@ export default [{
   name: 'Etherum',
   source: '59b50a27f8004b67d3a041bb',
   limit: 20,
-  url: 'https://www.ethnews.com/news',
-  scope: 'div.container div.all-articles article',
+  url: 'https://www.ethnews.com/news?search=a',
+  scope: 'div.container div.news__bottom div.article-thumbnail',
   selector: {
-    title: 'div.article__thumbnail__info h4',
-    description: 'div.article__thumbnail__social div.article__thumbnail__created',
-    url: 'div.article__thumbnail__img a@href',
-    image: 'div.article__thumbnail__img img@src',
+    title: 'div.article-thumbnail__info h2 a',
+    description: 'div.article-thumbnail__info div.article-thumbnail__info__etc__date h6',
+    url: 'div.article-thumbnail__info h2 a@href',
+    image: 'div.article-thumbnail__cover img@src',
   },
   map: (result) => {
     if (result) {

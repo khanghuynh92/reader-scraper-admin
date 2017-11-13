@@ -1,13 +1,13 @@
 import Xray from 'x-ray';
 
 const x = Xray();
-const url = 'https://www.dashforcenews.com/';
-const scope = '.container .posts-blog-feed-module .paginated_page article';
+const url = 'https://www.ethnews.com/news?search=a';
+const scope = 'div.container div.news__bottom div.article-thumbnail';
 const selector = {
-  title: '.post-content h2',
-  description: '.post-content .post-meta p span',
-  url: '.post-content .post-meta p a@href',
-  image: '.header img@src',
+  title: 'div.article-thumbnail__info h2 a',
+  description: 'div.article-thumbnail__info div.article-thumbnail__info__etc__date h6',
+  url: 'div.article-thumbnail__info h2 a@href',
+  image: 'div.article-thumbnail__cover img@src',
 };
 
 const crawl = () => {
@@ -18,6 +18,7 @@ const crawl = () => {
         console.log(err);
       }
       console.log(result);
+      console.log(result.length);
     });
 };
 
