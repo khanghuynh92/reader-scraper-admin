@@ -6,7 +6,7 @@ const scope = '.container .posts-blog-feed-module .paginated_page article';
 const selector = {
   title: '.post-content h2',
   description: '.post-content .post-meta p span',
-  url: '.post-content .post-meta p a@href',
+  url: '.post-content h2 a@href',
   image: '.header img@src',
 };
 
