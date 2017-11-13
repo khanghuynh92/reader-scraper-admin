@@ -1,13 +1,13 @@
 import Xray from 'x-ray';
 
 const x = Xray();
-const url = 'https://www.ethnews.com/news?search=a';
-const scope = 'div.container div.news__bottom div.article-thumbnail';
+const url = 'https://www.dashforcenews.com/?s=';
+const scope = '.container .posts-blog-feed-module .paginated_page article';
 const selector = {
-  title: 'div.article-thumbnail__info h2 a',
-  description: 'div.article-thumbnail__info div.article-thumbnail__info__etc__date h6',
-  url: 'div.article-thumbnail__info h2 a@href',
-  image: 'div.article-thumbnail__cover img@src',
+  title: '.post-content h2',
+  description: '.post-content .post-meta p span',
+  url: '.post-content .post-meta p a@href',
+  image: '.header img@src',
 };
 
 const crawl = () => {
