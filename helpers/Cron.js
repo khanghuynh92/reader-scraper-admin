@@ -150,9 +150,10 @@ const fetchCustom = async () => {
 
 // fetch custom
 const fetchInterval = async () => {
+  console.log('@===============> Start fetchInterval');
   setInterval(async () => {
     fetchCustom();
-  }, 3 * 60 * 60 * 1000); // 1 hour
+  }, 1 * 60 * 60 * 1000); // 1 hour
 };
 
 export {
